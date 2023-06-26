@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Image Viewer</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      padding: 0;
+    }
+
+    .image-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .image-container img {
+      width: 200px;
+      height: auto;
+      margin: 5px;
+    }
+
+    .image-number {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .navigation-buttons {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Image Viewer</h1>
+  <div class="image-container"></div>
+
+  <script>
+    // Define the directory where your images are located
+    const imageDirectory = './images';
+
+    // Get the container element for displaying the images
+    const imageContainer = document.querySelector('.image-container');
+
+    // Fetch the image files from the directory
+    fetchImages();
+
+    function fetchImages() {
+      const totalImages = 100;
+
+      // Display up to 100 images
+      for (let i = 1; i <= totalImages; i++) {
+        const img = document.createElement('img');
+        img.src = `${imageDirectory}/image${i}.png`;
+        imageContainer.appendChild(img);
+      }
+    }
+  </script>
+</body>
+</html>
